@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Clock, Phone, Mail, Menu, X } from 'lucide-react';
+import Image from 'next/image';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -86,12 +87,19 @@ const Header = () => {
       <div className={`transition-all duration-500
         ${isScrolled ? 'bg-slate-900/95 backdrop-blur-lg shadow-xl' : 'bg-transparent'}`}>
         <div className="flex justify-between items-center py-4 px-8">
-          {/* Logo - moved to left */}
-          <div className="flex items-center">
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Cake Mafira
-            </h1>
-          </div>
+        {/* Logo - moved to left */}
+        <div className="flex items-center p-0 m-0">
+        <div className="relative" style={{ height: '96px', width: '99px' }}>
+        <Image
+          src="/images/logo1.png"
+          alt="Cake Mafira"
+          fill
+          className="object-contain"
+          priority
+        />
+        </div>
+        </div>
+
           
           {/* Desktop Navigation - moved to right with proper spacing */}
           <div className="flex items-center gap-8">

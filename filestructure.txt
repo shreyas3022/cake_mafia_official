@@ -12,6 +12,7 @@
         |-- cake.png
     |-- images
         |-- logo.png
+        |-- logo1.png
     |-- next.svg
     |-- vercel.svg
     |-- window.svg
