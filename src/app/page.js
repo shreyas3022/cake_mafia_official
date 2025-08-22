@@ -1,103 +1,69 @@
-import Image from "next/image";
+import HeroBanner from "./components/HeroBanner";
+import WeOfferSection from "./components/WeOfferSection";
+import CustomCakesSection from "./components/CustomCakesSection";
+import MenuSection from "./components/MenuSection";
+import TestimonialsSection from "./components/TestimonialsSection";
+
+// Data (could also be moved to separate data files)
+const slides = [
+  {
+    title: "Flavour Inspired by the Seasons",
+    subtitle: "delightful experience",
+    description: "Premium cakes starting from ₹450 with free home delivery",
+    image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1920&h=1080&fit=crop"
+  },
+  {
+    title: "Where every Flavour tells a story",
+    subtitle: "delightful experience", 
+    description: "Premium cakes starting from ₹450 with free home delivery",
+    image: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=1920&h=1080&fit=crop"
+  },
+  {
+    title: "Crafted with Love & Perfection",
+    subtitle: "delightful experience",
+    description: "Premium cakes starting from ₹450 with free home delivery",
+    image: "https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=1920&h=1080&fit=crop"
+  }
+];
+
+const offers = [
+  { title: "Supreme Cake", image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop" },
+  { title: "Exotic Chocolate Flavour", image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=300&fit=crop" },
+  { title: "Cheese Cake", image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400&h=300&fit=crop" }
+];
+
+const customCakes = [
+  { title: "Engagement cake", image: "https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=400&h=400&fit=crop" },
+  { title: "Kids Birthday Theme", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop" },
+  { title: "Anniversary Special", image: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&h=400&fit=crop" }
+];
+
+const menuItems = [
+  { name: "Apple Rasmalai", image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=200&fit=crop", desc: "Experience the divine taste of Cake Mafira." },
+  { name: "Black Forest", image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=300&h=200&fit=crop", desc: "Experience the divine taste of Cake Mafira." },
+  { name: "Brown Velvet", image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=300&h=200&fit=crop", desc: "Experience the divine taste of Cake Mafira." },
+  { name: "Choco Chips", image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=300&h=200&fit=crop", desc: "Experience the divine taste of Cake Mafira." },
+  { name: "Exotic Blueberry", image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=300&h=200&fit=crop", desc: "Experience the divine taste of Cake Mafira." },
+  { name: "Ferrero Rocher", image: "https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=300&h=200&fit=crop", desc: "Experience the divine taste of Cake Mafira." },
+  { name: "Lotus Biscoff", image: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=300&h=200&fit=crop", desc: "Experience the divine taste of Cake Mafira." },
+  { name: "Red Velvet Cheese", image: "https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=300&h=200&fit=crop", desc: "Experience the divine taste of Cake Mafira." }
+];
+
+const testimonials = [
+  { name: "Priya Sharma", text: "I always take cake from Cake Mafira..very good taste, fresh bake and awesome finishing. They always make my customised cake very well...I must highly recommend it.", rating: 5, avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b977?w=80&h=80&fit=crop&crop=face" },
+  { name: "Rahul Verma", text: "Ordered a special Mango cake (1 kg) for office potluck. Delivered it right on time, taste was outstanding, presentation was fantastic. Highly recommend this bakery.", rating: 5, avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face" },
+  { name: "Sneha Patel", text: "We had ordered two cakes. It was perfect and tasty. Exactly what we ordered for. Service was on time and delivery was perfect. Everyone loved it.", rating: 5, avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" },
+  { name: "Amit Kumar", text: "We ordered a blue theme cake for my son's first birthday. Super yummy cake delivered on time. Cake was prepared exactly as per our theme. Thank you for your service.", rating: 5, avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face" }
+];
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+    <div className="overflow-hidden">
+      <HeroBanner slides={slides} />
+      <WeOfferSection offers={offers} />
+      <CustomCakesSection customCakes={customCakes} />
+      <MenuSection menuItems={menuItems} />
+      <TestimonialsSection testimonials={testimonials} />
     </div>
   );
 }
