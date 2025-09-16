@@ -89,7 +89,7 @@ const Header = () => {
         <div className="flex justify-between items-center py-4 px-8">
         {/* Logo - moved to left */}
         <div className="flex items-center p-0 m-0">
-        <div className="relative" style={{ height: '96px', width: '99px' }}>
+        <div className="relative" style={{ height: '98px', width: '99px' }}>
         <Image
           src="/images/logo1.png"
           alt="Cake Mafira"

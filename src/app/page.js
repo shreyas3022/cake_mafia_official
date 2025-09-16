@@ -7,22 +7,19 @@ import TestimonialsSection from "./components/TestimonialsSection";
 // Data (could also be moved to separate data files)
 const slides = [
   {
-    title: "Flavour Inspired by the Seasons",
-    subtitle: "delightful experience",
-    description: "Premium cakes starting from ₹450 with free home delivery",
+    title: "Where every Flavour tells a story",
+    description: "Artisanal cakes crafted from ₹350 with complimentary doorstep delivery",
     image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1920&h=1080&fit=crop"
   },
   {
-    title: "Where every Flavour tells a story",
-    subtitle: "delightful experience", 
-    description: "Premium cakes starting from ₹450 with free home delivery",
+    title: "Nature's Sweetness in Every Slice",
+    description: "Premium cakes starting from ₹350 with free home delivery",
     image: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=1920&h=1080&fit=crop"
   },
   {
     title: "Crafted with Love & Perfection",
-    subtitle: "delightful experience",
-    description: "Premium cakes starting from ₹450 with free home delivery",
-    image: "https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=1920&h=1080&fit=crop"
+    description: "Premium cakes starting from ₹350 with free home delivery",
+    image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=1920&h=1080&fit=crop"
   }
 ];
 
